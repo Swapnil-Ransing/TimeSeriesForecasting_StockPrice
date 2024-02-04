@@ -45,15 +45,21 @@ Data normalization is performed using MinMaxScaler. MinMaxScaler is used for X_t
 
 ### Model training
 Following sequential model is being used to train the model:
+
 ![LSTMModelSummary](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/LSTMModelSummary.JPG)
+
 Following mean squared error and mean absolute error were obtained after the model train:
+
 ![LSTMModelTrain](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/LSTMModelTrain.JPG)
+
 
 ### Model Predictions and Extrapolating the results
 Model predictions were computed on the test data from the trained model. For model predictions we used the actual close (target) price from the historical data. However in the actual scenario close price also should be predicted from the model. Extrapolation is refered to the procedure where each day close price is predicted based on the trained model fitted on the previous samples and once the close price is obtained, it is being integrated in the extrapolation sample data for next day prediction.
 
 Following are the model prediction and extrapolation results were obtained:
+
 ![PredictionResults](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/PredictionResults.JPG)
+
 ![PredictionAndExtrapolationResults](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/PredictionAndExtrapolationResults.JPG)
 
 ## Observations and Conclusions :
