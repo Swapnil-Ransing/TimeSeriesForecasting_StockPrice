@@ -33,5 +33,35 @@ For featurization following technical indicators were used:
 Following is a final featurized dataframe:
 ![ICICIBankFeaturizaedDf](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/ICICIBankFeaturizaedDf.JPG)
 
+### Train test data split and normalization
+Last one months data is considered to be test data, rest is considered as the train data.
+Also as we will be generating the time series, last 30 days of train observations are also concatednated at the top of test data. This 30 days are the look back period. Details about time series generator and look back period is mentioned in the next section.
+
+Close price is the target variable. Further y_train, y_test consists of target variable and rest of the columns are present in the X_train and X_test dataframes.
+Data normalization is performed using MinMaxScaler. MinMaxScaler is used for X_train dataframe and is transformed on the X_test dataframe.
+
+### Time series generator
+[Keras time series generator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/sequence/TimeseriesGenerator) is used to generate the structured data for predicting the target. Basic idea is to look X_train samples equals to look back period to predict a single target. Look back period value of 30 is being used which indicates, 30 X_train samples are used to predict the 31st y_train target. This data structure is formed using the time series generator for train and test datasets. This was also the reason of adding last 30 samples from the train dataset at the test dataset top.
+
+### Model training
+Following sequential model is being used to train the model:
+![LSTMModelSummary](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/LSTMModelSummary.JPG)
+Following mean squared error and mean absolute error were obtained after the model train:
+![LSTMModelTrain](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/LSTMModelTrain.JPG)
+
+### Model Predictions and Extrapolating the results
+Model predictions were computed on the test data from the trained model. For model predictions we used the actual close (target) price from the historical data. However in the actual scenario close price also should be predicted from the model. Extrapolation is refered to the procedure where each day close price is predicted based on the trained model fitted on the previous samples and once the close price is obtained, it is being integrated in the extrapolation sample data for next day prediction.
+
+Following are the model prediction and extrapolation results were obtained:
+![PredictionResults](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/PredictionResults.JPG)
+![PredictionAndExtrapolationResults](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/PredictionAndExtrapolationResults.JPG)
+
+## Observations and Conclusions :
+1. Time series generator is being used to generate the data suitable for time series forecast and LSTM model.
+2. LSTM model is being used for price prediction.
+3. mean squared error and mena absolute error, did not show  much improvement with the training for higher epochs.
+4. Model prediction shown a trend match with the true values however, extrapolation results were not in alignment with true values.
+
+
 
 
