@@ -10,10 +10,28 @@ There are multiple statistics, mathematical, machine learning etc. models to pre
 ### Getting the historical data
 ICICIBANK is NSE listed stock. Yahoo finance [yfinance](https://pypi.org/project/yfinance/) api is being used to get the stocks historical data. This consisted of open, high, low, close, adj. close prices and volume for each trading date. If we are extrapolation the data for future date, the only reference we will have in time series generator is of previous day close price. For this reason, we will only use Close price of stock.
 
-## Data preprocessing and featurization
+### Data preprocessing and featurization
 Model is trained on the recent two years data. This is because the historical price trend will not be useful in predicting the trend and training the model. Model developed on the recent data has shown a good match for predictions.
 Then data is checked for any Nan values and any Nan value rows if present, are deleted. 
 
+![ICICIBANK Close Price Image](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/ICICIBankClosePrice.JPG)
+
+For featurization following technical indicators were used:
+1. 7 day moving average
+2. 21 day moving average
+3. 50 day moving average
+4. 26 day exponential moving average
+5. 50 day exponential moving average
+6. 12 day exponential moving average
+7. Moving average convergence divergence (MACD)
+8. Bollinger band: 20 day standard deviation
+9. Bollinger bands upper band : 20 day mean + (20 day standard deviation *2 )
+10. Bollinger bands lower band : 20 day mean - (20 day standard deviation *2 )
+11. Exponentioal moving average
+12. momentum
+
+Following is a final featurized dataframe:
+![ICICIBankFeaturizaedDf](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/ICICIBankFeaturizaedDf.JPG)
 
 
 
