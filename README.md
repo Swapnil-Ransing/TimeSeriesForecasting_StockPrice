@@ -68,6 +68,10 @@ Following are the model prediction and extrapolation results were obtained:
 3. mean squared error and mena absolute error, did not show  much improvement with the training for higher epochs.
 4. Model prediction shown a trend match with the true values however, extrapolation results were not in alignment with true values.
 
+## References:
+1. [Forecasting Stock With Different Models: ARIMA, LSTM, Fourier](https://medium.com/@matthew1992/forecasting-stock-with-different-models-arima-lstm-fourier-ef096885cf75)
+2. [How to Use the TimeseriesGenerator for Time Series Forecasting in Keras](https://machinelearningmastery.com/how-to-use-the-timeseriesgenerator-for-time-series-forecasting-in-keras/)
+
 
 
 
