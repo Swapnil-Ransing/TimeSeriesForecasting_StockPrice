@@ -44,7 +44,7 @@ Data normalization is performed using MinMaxScaler. MinMaxScaler is used for X_t
 [Keras time series generator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/sequence/TimeseriesGenerator) is used to generate the structured data for predicting the target. Basic idea is to look X_train samples equals to look back period to predict a single target. Look back period value of 30 is being used which indicates, 30 X_train samples are used to predict the 31st y_train target. This data structure is formed using the time series generator for train and test datasets. This was also the reason of adding last 30 samples from the train dataset at the test dataset top.
 
 ### Model training
-Following sequential model is being used to train the model:
+Following sequential model is trained on the training data with mean squared error as the loss. Batch size of 16 and 60 epochs were used to train the model.
 
 ![LSTMModelSummary](https://github.com/Swapnil-Ransing/TimeSeriesForecasting_StockPrice/blob/main/Images/LSTMModelSummary.JPG)
 
